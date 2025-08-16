@@ -46,6 +46,24 @@
         a:hover {
             text-decoration: underline;
         }
+        #goToDateBtn {
+            padding: 8px 16px;
+            background-color: #326891;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-family: 'Helvetica', sans-serif;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        #goToDateBtn:hover {
+            background-color: #2a5a7a;
+        }
+        #goToDateBtn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
   </style>
 </head>
 <body>
@@ -57,8 +75,8 @@
 
     <p>
       Welcome to <strong>thehistoryofdonaldjtrump.com</strong>.  
-      This project documents Donald J. Trump’s daily political activities, decisions, public statements, and major events throughout his time in public life.  
-      Donald Trump is a unique political figure — one who has changed the way politics operates in the United States.  
+      This project documents Donald J. Trump's daily political activities, decisions, public statements, and major events throughout his time in public life.  
+      Donald Trump is a unique political figure - one who has changed the way politics operates in the United States.  
       This archive seeks to provide a chronological record for historians, journalists, researchers, and curious citizens.  
     </p>
 
@@ -66,16 +84,28 @@
       Use the calendar below to select any date and view the detailed events for that day.
     </p>
 
-    <!-- Date Picker for Jump to Date -->
+    <!-- Date Picker with Confirmation Button -->
     <div style="margin-bottom: 20px;">
       <label for="datePicker"><strong>Jump to Date:</strong></label>
       <input type="date" id="datePicker">
+      <button id="goToDateBtn" disabled>Go to Date</button>
     </div>
 
     <script>
-    document.getElementById('datePicker').addEventListener('change', function() {
-        if (!this.value) return;
-        const [year, month, day] = this.value.split('-');
+    const datePicker = document.getElementById('datePicker');
+    const goToDateBtn = document.getElementById('goToDateBtn');
+
+    // Enable/disable button when date changes
+    datePicker.addEventListener('change', function() {
+        goToDateBtn.disabled = !this.value;
+    });
+
+    // Handle button click to navigate to the selected date
+    goToDateBtn.addEventListener('click', function() {
+        const selectedDate = datePicker.value;
+        if (!selectedDate) return;
+        
+        const [year, month, day] = selectedDate.split('-');
         window.location.href = `/${year}/${month}/${day}/`;
     });
     </script>

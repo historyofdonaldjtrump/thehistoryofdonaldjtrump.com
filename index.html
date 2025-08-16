@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trump Archive: [MONTH DAY, YEAR]</title>
-    <style>
-        /* === NYT-INSPIRED STYLES === */
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The History of Donald J. Trump</title>
+  <style>
         body {
             font-family: 'Georgia', serif;
             background: #fff;
@@ -40,51 +39,6 @@
             color: #444;
             margin-bottom: 20px;
         }
-        h2 {
-            font-size: 20px;
-            border-top: 1px solid #e2e2e2;
-            padding-top: 15px;
-            margin: 30px 0 15px 0;
-        }
-        .event {
-            margin-bottom: 18px;
-        }
-        .time {
-            font-family: 'Helvetica', sans-serif;
-            font-weight: bold;
-            color: #333;
-            display: inline-block;
-            min-width: 70px;
-        }
-        ul {
-            padding-left: 25px;
-        }
-        li {
-            margin-bottom: 8px;
-            position: relative;
-        }
-        li:before {
-            content: "•";
-            position: absolute;
-            left: -15px;
-            color: #999;
-        }
-        .pullquote {
-            font-size: 20px;
-            line-height: 1.4;
-            color: #333;
-            border-left: 3px solid #e2e2e2;
-            padding-left: 15px;
-            margin: 20px 0 20px 15px;
-            font-style: italic;
-        }
-        .footer {
-            border-top: 1px solid #e2e2e2;
-            margin-top: 40px;
-            padding-top: 15px;
-            font-size: 14px;
-            color: #666;
-        }
         a {
             color: #326891;
             text-decoration: none;
@@ -92,54 +46,39 @@
         a:hover {
             text-decoration: underline;
         }
-    </style>
+  </style>
 </head>
 <body>
     <div class="header">
-        <div class="date">[DAY OF WEEK], [MONTH] [DAY], [YEAR]</div>
-        <h1>Donald J. Trump's Day: [KEY EVENT]</h1>
-        <div class="dek">A chronological account of executive actions, public appearances, and notable developments</div>
+        <div class="date">Welcome</div>
+        <h1>The History of Donald J. Trump</h1>
+        <div class="dek">Tracking the daily political history of one of the most unconventional figures in American politics.</div>
     </div>
 
-    <!-- LEAD SUMMARY -->
-    <p><strong>[CITY]</strong> — [1-2 sentence lead summary of the day's most significant event].</p>
+    <p>
+      Welcome to <strong>thehistoryofdonaldjtrump.com</strong>.  
+      This project documents Donald J. Trump’s daily political activities, decisions, public statements, and major events throughout his time in public life.  
+      Donald Trump is a unique political figure — one who has changed the way politics operates in the United States.  
+      This archive seeks to provide a chronological record for historians, journalists, researchers, and curious citizens.  
+    </p>
 
-    <!-- TIMELINE -->
-    <h2>Daily Chronology</h2>
-    <div class="event">
-        <span class="time">9:15 AM:</span> [Event description with location and context].
-    </div>
-    <div class="event">
-        <span class="time">12:30 PM:</span> [Event description].
-    </div>
+    <p>
+      Use the calendar below to select any date and view the detailed events for that day.
+    </p>
 
-    <!-- EXECUTIVE ACTIONS -->
-    <h2>Executive Actions</h2>
-    <ul>
-        <li>Signed [ORDER NAME] directing [ACTION]. ("[QUOTE FROM DOCUMENT]")</li>
-        <li>Issued memorandum on [TOPIC] to [AGENCY].</li>
-    </ul>
-
-    <!-- NOTABLE QUOTES -->
-    <div class="pullquote">
-        "[SIGNIFICANT QUOTE FROM SPEECH OR TWEET]"
+    <!-- Date Picker for Jump to Date -->
+    <div style="margin-bottom: 20px;">
+      <label for="datePicker"><strong>Jump to Date:</strong></label>
+      <input type="date" id="datePicker">
     </div>
 
-    <!-- MEDIA ANALYSIS -->
-    <h2>Press Coverage</h2>
-    <ul>
-        <li><strong>The New York Times:</strong> [ANALYSIS SUMMARY] <a href="#">(Read more)</a></li>
-        <li><strong>Fox News:</strong> [ANALYSIS SUMMARY]</li>
-    </ul>
+    <script>
+    document.getElementById('datePicker').addEventListener('change', function() {
+        if (!this.value) return;
+        const [year, month, day] = this.value.split('-');
+        window.location.href = `/${year}/${month}/${day}/`;
+    });
+    </script>
 
-    <!-- HISTORICAL CONTEXT -->
-    <h2>Historical Significance</h2>
-    <p>[1-2 paragraph analysis of how this day fits into broader patterns].</p>
-
-    <div class="footer">
-        <a href="index.html">« Return to Calendar</a> | 
-        <a href="#">View Next Day</a> | 
-        <a href="#">Full Archive</a>
-    </div>
 </body>
 </html>
